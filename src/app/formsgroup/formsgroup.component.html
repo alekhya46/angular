@@ -1,0 +1,78 @@
+<p>formsgroup works!</p>
+
+
+<div class="class col-md-6 offset-md-3">
+    <h1><u>REACTIVE FORM</u></h1>
+    <br>
+
+    <form [formGroup] = "signInForm" (ngSubmit)="onFormSubmit()">
+        
+      
+        <div class="mb-3">
+          <label for="username" class="form-label">username</label>
+          <input type="text" class="form-control" [ngClass]="{'errorClass': f.username.touched && f.username.errors} "formControlName="username"
+          id="username" name="usernameField">
+        </div>
+        
+        <div *ngIf="f.username.touched && f.username.invalid">
+
+          <div class="text-danger" *ngIf="f.username.errors.required">
+             this field is mandatory
+          </div>
+          <div class="text-danger" *ngIf="f.username.errors.minlength || f.username.errors.maxlength">
+             The minimum char is 5 and max is 10
+          </div>
+
+
+        </div>
+        
+        <div class="mb-3">
+          <label for="password" class="form-label">password</label>
+          <input type="password" class="form-control" [ngClass]="{'errorClass': f.password.touched && f.password.errors} "formControlName="password"
+          id="username" name="passwordField">
+        </div>
+        <div *ngIf="f.password.touched && f.password.invalid">
+          <div class="textdanger" *ngIf="f.password.errors.required">
+             this field is mandatory
+          </div>
+          <div class="text-danger" *ngIf="f.password.errors.minlength || f.password.errors.maxlength">
+             The minimum char is 5 and max is 10
+          </div>
+
+        </div>
+
+        <hr>
+        <div formGroupName ="skills">
+            <label for="skill" class="form-label">Skill :</label>
+            <input type="text" class="me-3 ms-2" formControlName ="skill">
+            <input type="text" placeholder="years of experience.. " formControlName="yoe">
+            <label for="level">skill Level :</label>
+            <select name="level" id="levelCheck" class ="ms-3 mb-4 mt-2" formControlName="levelCheck">
+              <option value="">--select--</option>
+              <option value="Beginner">Beginner</option>
+              <option value="intermediate">intermediate</option>
+              <option value="expert">expert</option>
+            </select>
+
+        </div>
+        <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" formControlName ="Check"
+            id="terms" name="terms">
+            <label class="form-check-label" for="terms" >agree to terms</label>
+
+        </div>
+
+        <div formArrayName ="hobbies">
+          <div >
+            <button class= "btn btn-warning" (click)="addHobby()">addHobby</button>
+          </div>
+          <div *ngFor = "let hobby of hobbyControls ; index as i ">
+          <input type="text" class="form-control mt-2 mb-2" [formControlName]="i" >
+          </div>
+        </div>
+
+        
+        <button type="submit" [disabled]="signInForm.invalid" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+    

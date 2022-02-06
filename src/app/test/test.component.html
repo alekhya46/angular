@@ -1,0 +1,42 @@
+<div class="col-md-6 offset-md-3">
+    <form [formGroup]="loginForm" (ngSubmit)="reac()">
+        <div>
+            <label for="email" class="form-label">email</label>
+            <input type="email" class="form-control" formControlName="email" [ngClass]="{'errorClass':f.email.touched && f.email.errors}">
+        </div>
+
+        <div *ngIf="f.email.touched && f.email.invalid">
+            <div *ngIf="f.email.errors.required" class="text-danger">
+                this field is mandatory
+            </div>
+    
+            <div *ngIf="f.email.errors.minlength" class="text-danger">
+              min length is 4
+            </div>
+            <div *ngIf =" f.email.errors.email" class="text-danger">
+                please type in email format
+            </div>
+        </div>
+
+
+
+
+        <div>
+            <label for="password" class="form-label">password</label>
+            <input type="password" class="form-control" formControlName="password" [ngClass]="{'errorClass':f.password.touched && f.password.errors}">
+            <div *ngIf="f.password.touched && f.password.invalid">
+                <div *ngIf="f.password.errors.required" class="text-danger">
+                    this field is mandatory
+                </div>
+        
+                <div *ngIf="f.password.errors.minlength" class="text-danger">
+                  min length is 4
+                </div>
+                <div *ngIf =" f.password.errors.maxlength" class="text-danger">
+                    please type in email format
+                </div>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">submit</button>
+    </form>
+</div>

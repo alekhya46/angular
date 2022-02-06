@@ -1,0 +1,25 @@
+<p>interact works!</p>
+<table class="table">
+    <tr>
+        <th>#</th>
+        <th>name</th>
+        <th>price</th>
+        <th>brand</th>
+    </tr>
+    <tr *ngFor ="let product of Products;index as i">
+        <td>{{i+1}}</td>
+        <td>{{product.productName}}</td>
+        <td>{{product.price}}</td>
+        <td>{{product.productBrand}}</td>
+
+     </tr>
+
+</table>
+<input type="text" placeholder="enter Id" [(ngModel)]="id"><br>
+<input type="text" placeholder="enter name" [(ngModel)]="name"><br>
+<input type="text" placeholder="enter brand" [(ngModel)]="price"><br>
+<input type="text" placeholder="enter price" [(ngModel)]="brand"><br>
+<button (click)="addProduct()">Addproduct</button>
+<button (click)="updateProduct()"> update Product</button>
+<button (click)="deleteProduct()">delete</button>
+<button mat-raised-button class="btn btn-primary">hellow</button>

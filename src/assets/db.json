@@ -1,0 +1,28 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "productName": "watch",
+      "productBrand": "Fossil",
+      "price": 13000
+    },
+    {
+      "id": 2,
+      "productName": "shoe",
+      "productBrand": "nike",
+      "price": 13000
+    },
+    {
+      "id": 3,
+      "productName": "piano",
+      "productBrand": "yamaha",
+      "price": 13000
+    },
+    {
+      "id": "4",
+      "productName": "chess",
+      "productBrand": "10000",
+      "price": "magnus carslen"
+    }
+  ]
+}
